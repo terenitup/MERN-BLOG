@@ -30,3 +30,17 @@ export function signUp({email, password}) {
             })
     }
 }
+
+export function signIn({email, password}) {
+    return function(dispatch) {
+        axios.post('http://localhost:5000/api/signin', {
+            email, password
+        })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+}
